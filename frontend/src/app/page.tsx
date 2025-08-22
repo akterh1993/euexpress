@@ -1,11 +1,17 @@
-import Image from "next/image";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import HeroSection from "../components/HeroSection";
+import FeaturedProducts from "../components/FeaturedProducts";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <Navbar />
+      <main>
+        <HeroSection />
+        <FeaturedProducts />
+      </main>
+      <Footer />
     </>
   );
 }
