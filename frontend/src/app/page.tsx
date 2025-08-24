@@ -1,17 +1,16 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import HeroSection from "../components/HeroSection";
-import FeaturedProducts from "../components/FeaturedProducts";
 
-export default function HomePage() {
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import HomePage from "./home/HomePage";
+
+
+
+export default function Page() {
   return (
     <>
-      <Navbar />
       <main>
-        <HeroSection />
-        <FeaturedProducts />
+        <HomePage />
       </main>
-      <Footer />
     </>
   );
 }
