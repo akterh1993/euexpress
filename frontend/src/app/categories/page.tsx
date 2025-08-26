@@ -3,10 +3,10 @@
 import CategoryGrid from "./components/CategoryGrid";
 
 const categories = [
-  { id: 1, name: "Watches", image: "/categories/watch.jpg", description: "Smart & stylish watches" },
-  { id: 2, name: "Earbuds", image: "/categories/earbuds.jpg", description: "High-quality wireless earbuds" },
-  { id: 3, name: "Drones", image: "/categories/drone.jpg", description: "Capture stunning aerial views" },
-  { id: 4, name: "Gaming", image: "/categories/gaming.jpg", description: "Top-notch gaming gear" },
+  { id: 1, name: "Watches", image: "/products/smart watch.jpg", description: "Smart & stylish watches" },
+  { id: 2, name: "Earbuds", image: "/products/earbuds.jpg", description: "High-quality wireless earbuds" },
+  { id: 3, name: "Drones", image: "/products/drone camera.jpg", description: "Capture stunning aerial views" },
+  { id: 4, name: "Gaming", image: "/products/gamming mouse.jpg", description: "Top-notch gaming gear" },
 ];
 
 export default function CategoriesPage() {
