@@ -2,12 +2,14 @@
 import ProductGrid from "./components/ProductGrid";
 
 const products = [
-  { id: 1, name: "Apple Watch", price: 399, vendor: "Apple", category: "watches", image: "/products/watch1.jpg" },
-  { id: 2, name: "Samsung Galaxy Watch", price: 299, vendor: "Samsung", category: "watches", image: "/products/watch2.jpg" },
-  { id: 3, name: "AirPods Pro", price: 249, vendor: "Apple", category: "earbuds", image: "/products/earbuds1.jpg" },
-  { id: 4, name: "Sony WF-1000XM4", price: 199, vendor: "Sony", category: "earbuds", image: "/products/earbuds2.jpg" },
-  { id: 5, name: "DJI Drone", price: 499, vendor: "DJI", category: "drones", image: "/products/drone1.jpg" },
-  { id: 6, name: "Gaming Mouse", price: 69, vendor: "Logitech", category: "gaming", image: "/products/mouse1.jpg" },
+  { id: 1, name: "Apple Watch", price: 399, vendor: "Apple", category: "watches", image: "/images/products/apple watch.jpeg" },
+  { id: 2, name: "Samsung Galaxy Watch", price: 299, vendor: "Samsung", category: "watches", image: "/images/products/samsung watch.png" },
+  { id: 3, name: "AirPods Pro", price: 249, vendor: "Apple", category: "earbuds", image: "/images/products/airpods.png" },
+  { id: 4, name: "Sony WF-1000XM4", price: 199, vendor: "Sony", category: "earbuds", image: "/images/products/sony wf.png" },
+  { id: 5, name: "DJI Drone", price: 499, vendor: "DJI", category: "drones", image: "/images/products/drone.jpeg" },
+  { id: 6, name: "Gaming Mouse", price: 69, vendor: "Logitech", category: "gaming", image: "/images/products/mouse.png" },
+  { id: 7, name: "Denim Pant", price: 99, vendor: "Denim", category: "pant", image: "/images/products/pant.png" },
+  { id: 8, name: "T- Shirt", price: 60, vendor: "Denim", category: "T-Shirt", image: "/images/products/t-shirt.png" },
 ];
 
 export default function ProductsPage() {
@@ -20,26 +22,3 @@ export default function ProductsPage() {
 }
 
 
-
-// "use client";
-// import { useState } from "react";
-// import ProductCategoryCard from "./components/ProductCategoryCard";
-
-
-// interface Category {
-//   name: string;
-//   slug: string;
-//   image: string;
-// }
-
-// export default function CategoryGrid({ categories, onSelect }: { categories: Category[], onSelect: (slug: string) => void }) {
-//   return (
-//     <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-8">
-//       {categories.map((c) => (
-//         <div key={c.slug} onClick={() => onSelect(c.slug)}>
-//           <ProductCategoryCard category={c} />
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
