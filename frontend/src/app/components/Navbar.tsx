@@ -1,57 +1,100 @@
 "use client";
 import Link from "next/link";
-import { ROUTES } from "../router/route";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+interface NavLink {
+  name: string;
+  path: string;
+}
+
+interface NavbarData {
+  logo: {
+    src: string;
+    name: string;
+  };
+  links: NavLink[];
+  login: NavLink;
+}
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [navbarData, setNavbarData] = useState<NavbarData | null>(null);
+
+  useEffect(() => {
+    fetch("/data/navbarData.json")
+      .then((res) => res.json())
+      .then((data: NavbarData) => setNavbarData(data))
+      .catch((err) => console.error("Failed to load navbar data:", err));
+  }, []);
+
+  if (!navbarData) return null;
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 bg-gradient-to-r from-indigo-600 via-violet-500 to-pink-500 shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         {/* Logo */}
-        <Link href={ROUTES.HOME} className="flex items-center space-x-2">
-          <img src="/images/logo/EUEXPRESS.png" alt="Logo" className="h-10 w-10" />
-          <span className="text-2xl font-bold text-blue-600">EUExpress.co</span>
+        <Link href="/" className="flex items-center space-x-2">
+          <img
+            src={navbarData.logo.src}
+            alt="Logo"
+            className="h-10 w-10 object-contain"
+          />
+          <span className="text-2xl font-bold text-yellow-400">
+            {navbarData.logo.name}
+          </span>
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 items-center">
-          {Object.entries(ROUTES).map(([key, path]) => {
-            if (key === "LOGIN") return null;
-            return (
-              <Link key={key} href={path} className="text-gray-700 hover:text-blue-600">
-                {key.charAt(0) + key.slice(1).toLowerCase()}
-              </Link>
-            );
-          })}
+          {navbarData.links.map((link) => (
+            <Link
+              key={link.path}
+              href={link.path}
+              className="text-white hover:text-yellow-300 transition-colors duration-300 font-medium"
+            >
+              {link.name}
+            </Link>
+          ))}
 
           {/* Login */}
           <Link
-            href={ROUTES.LOGIN}
-            className="ml-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+            href={navbarData.login.path}
+            className="ml-4 bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-500 transition duration-300 font-medium"
           >
-            Login
+            {navbarData.login.name}
           </Link>
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
+        <button
+          className="md:hidden text-white text-2xl font-bold"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          {Object.entries(ROUTES).map(([key, path]) => (
+        <div className="md:hidden bg-gradient-to-r from-indigo-600 via-violet-500 to-pink-500 shadow-xl">
+          {navbarData.links.map((link) => (
             <Link
-              key={key}
-              href={path}
-              className="block px-4 py-3 border-b border-gray-200 text-gray-700 hover:bg-blue-50"
+              key={link.path}
+              href={link.path}
+              className="block px-4 py-3 border-b border-white/30 text-white hover:bg-white/10 transition"
               onClick={() => setMenuOpen(false)}
             >
-              {key.charAt(0) + key.slice(1).toLowerCase()}
+              {link.name}
             </Link>
           ))}
+          {/* Login for Mobile */}
+          <Link
+            href={navbarData.login.path}
+            className="block px-4 py-3 mt-2 bg-yellow-400 text-gray-900 text-center rounded-lg hover:bg-yellow-500 transition duration-300"
+            onClick={() => setMenuOpen(false)}
+          >
+            {navbarData.login.name}
+          </Link>
         </div>
       )}
     </nav>

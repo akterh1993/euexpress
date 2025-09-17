@@ -1,0 +1,20 @@
+{
+  "company": {
+    "logo": "/images/logo/EUEXPRESS.png",
+    "name": "EUExpress.co",
+    "description": "Fast, smart, AI-powered eCommerce platform connecting vendors and customers globally. Experience a seamless shopping journey."
+  },
+  "quickLinks": [
+    { "name": "Home", "path": "/" },
+    { "name": "Products", "path": "/products" },
+    { "name": "About", "path": "/about" },
+    { "name": "Contact", "path": "/contact" }
+  ],
+  "socials": [
+    { "name": "Facebook", "link": "https://facebook.com", "icon": "FaFacebookF" },
+    { "name": "Twitter", "link": "https://twitter.com", "icon": "FaTwitter" },
+    { "name": "Instagram", "link": "https://instagram.com", "icon": "FaInstagram" },
+    { "name": "LinkedIn", "link": "https://linkedin.com", "icon": "FaLinkedinIn" },
+    { "name": "YouTube", "link": "https://youtube.com", "icon": "FaYoutube" }
+  ]
+}

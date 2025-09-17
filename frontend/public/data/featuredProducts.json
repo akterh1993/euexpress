@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "Smart Watch", "price": 120, "vendor": "Apple", "category": "watches", "image": "/products/smart watch.jpg" },
+  { "id": 2, "name": "Wireless Earbuds", "price": 80, "vendor": "Sony", "category": "earbuds", "image": "/products/earbuds.jpg" },
+  { "id": 3, "name": "Drone Camera", "price": 350, "vendor": "DJI", "category": "drones", "image": "/products/drone camera.jpg" },
+  { "id": 4, "name": "Gaming Mouse", "price": 60, "vendor": "Logitech", "category": "gaming", "image": "/products/gamming mouse.jpg" }
+]

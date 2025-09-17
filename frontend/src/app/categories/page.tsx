@@ -1,15 +1,25 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import CategoryGrid from "./components/CategoryGrid";
 
-const categories = [
-  { id: 1, name: "Watches", image: "/products/smart watch.jpg", description: "Smart & stylish watches" },
-  { id: 2, name: "Earbuds", image: "/products/earbuds.jpg", description: "High-quality wireless earbuds" },
-  { id: 3, name: "Drones", image: "/products/drone camera.jpg", description: "Capture stunning aerial views" },
-  { id: 4, name: "Gaming", image: "/products/gamming mouse.jpg", description: "Top-notch gaming gear" },
-];
+interface Category {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+}
 
 export default function CategoriesPage() {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    fetch("/data/categories.json")
+      .then((res) => res.json())
+      .then((data: Category[]) => setCategories(data))
+      .catch((err) => console.error("Failed to load categories:", err));
+  }, []);
+
   return (
     <div className="min-h-screen py-16 px-6 bg-gray-50">
       <h1 className="text-4xl font-bold text-center mb-12">Categories</h1>
