@@ -1,24 +1,42 @@
 "use client";
+
+import { useState, useEffect } from "react";
 import ProductGrid from "./components/ProductGrid";
+import { motion } from "framer-motion";
 
-const products = [
-  { id: 1, name: "Apple Watch", price: 399, vendor: "Apple", category: "watches", image: "/images/products/apple watch.jpeg" },
-  { id: 2, name: "Samsung Galaxy Watch", price: 299, vendor: "Samsung", category: "watches", image: "/images/products/samsung watch.png" },
-  { id: 3, name: "AirPods Pro", price: 249, vendor: "Apple", category: "earbuds", image: "/images/products/airpods.png" },
-  { id: 4, name: "Sony WF-1000XM4", price: 199, vendor: "Sony", category: "earbuds", image: "/images/products/sony wf.png" },
-  { id: 5, name: "DJI Drone", price: 499, vendor: "DJI", category: "drones", image: "/images/products/drone.jpeg" },
-  { id: 6, name: "Gaming Mouse", price: 69, vendor: "Logitech", category: "gaming", image: "/images/products/mouse.png" },
-  { id: 7, name: "Denim Pant", price: 99, vendor: "Denim", category: "pant", image: "/images/products/pant.png" },
-  { id: 8, name: "T- Shirt", price: 60, vendor: "Denim", category: "T-Shirt", image: "/images/products/t-shirt.png" },
-];
-
-export default function ProductsPage() {
-  return (
-    <div className="min-h-screen py-16 px-6 bg-gray-50">
-      <h1 className="text-4xl font-bold mb-8 text-center">All Products</h1>
-      <ProductGrid products={products} />
-    </div>
-  );
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  vendor: string;
+  category: string;
+  image: string;
 }
 
+export default function ProductsPage() {
+  const [products, setProducts] = useState<Product[]>([]);
 
+  useEffect(() => {
+    fetch("/data/products.json")
+      .then((res) => res.json())
+      .then((data: Product[]) => setProducts(data))
+      .catch((err) => console.error("Failed to load products:", err));
+  }, []);
+
+  return (
+    <section className="w-full min-h-screen py-16 px-6 bg-gradient-to-r from-indigo-600 via-violet-500 to-pink-500">
+      <motion.h1
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl md:text-5xl font-bold mb-12 text-center text-white drop-shadow-lg"
+      >
+        All Products
+      </motion.h1>
+
+      <div className="max-w-7xl mx-auto">
+        <ProductGrid products={products} />
+      </div>
+    </section>
+  );
+}

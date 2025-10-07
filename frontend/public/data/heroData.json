@@ -1,0 +1,20 @@
+[
+  {
+    "image": "/images/banner/banner.png",
+    "title": "Discover Amazing Products",
+    "subtitle": "Shop from multiple vendors in one place. Fast, secure & reliable.",
+    "button": "Shop Now"
+  },
+  {
+    "image": "/images/banner/banner1.png",
+    "title": "New Arrivals Every Week",
+    "subtitle": "Stay updated with the latest products from top brands.",
+    "button": "Explore Now"
+  },
+  {
+    "image": "/images/banner/banner2.jpg",
+    "title": "Best Deals for You",
+    "subtitle": "Grab amazing discounts and offers on top products.",
+    "button": "Grab Deal"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Alice",
+    "text": "EUExpress is amazing! Fast delivery and AI recommendations are perfect.",
+    "avatar": "/avatars/alice.png"
+  },
+  {
+    "id": 2,
+    "name": "Bob",
+    "text": "I love the smooth shopping experience and global reach.",
+    "avatar": "/avatars/bob.png"
+  },
+  {
+    "id": 3,
+    "name": "Charlie",
+    "text": "Highly recommended! Great customer support and reliable service.",
+    "avatar": "/avatars/charlie.png"
+  }
+]

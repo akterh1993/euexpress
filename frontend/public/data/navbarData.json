@@ -1,0 +1,14 @@
+{
+  "logo": {
+    "src": "/images/logo/EUEXPRESS.png",
+    "name": "EUExpress.co"
+  },
+  "links": [
+    { "name": "Home", "path": "/" },
+    { "name": "Products", "path": "/products" },
+    { "name": "Category", "path": "/categories" },
+    { "name": "Contact", "path": "/contact" },
+    { "name": "Cart", "path": "/cart" }
+  ],
+  "login": { "name": "Login", "path": "/login" }
+}
